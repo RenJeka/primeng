@@ -11,6 +11,22 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2015",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "paths": {
+      "@environments/*": ["src/environments/*"],
+      "@beua/*": [ "src/app/Common/modules/*" ],
+      "@beua-services/*": [ "src/app/Common/services/*" ],
+      "@base-components/*": ["src/app/Common/base-components/*"],
+      "@components/*": ["src/app/components/*"],
+      "@guards/*": ["src/app/Common/guards/*"],
+      "@web-api": [ "src/app/Common/services/web-api/la/la.web-api.services.ts" ],
+      "@odata-services": [ "src/app/Common/services/odata/la/la.odata-services.ts" ],
+      "@odata-models": [ "src/app/Common/services/odata/la/la.odata-models.ts" ],
+      "@right": ["src/app/Common/services/right/la.right.ts"],
+      "primeng/*": ["node_modules/primeng-lts/*"]
+    },
     "lib": [
       "es2018",
       "dom"
