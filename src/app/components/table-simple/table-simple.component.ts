@@ -10,8 +10,10 @@ import {CarService} from "src/app//services/car.service";
 })
 export class TableSimpleComponent implements OnInit {
 
+
   cars: Car[];
-  selectedValues: string[] = [];
+  cols: any[];
+
   constructor(private carService: CarService) { }
 
   ngOnInit() {
@@ -19,6 +21,18 @@ export class TableSimpleComponent implements OnInit {
       console.log(cars);
       this.cars = cars
     });
+    this.cols = [
+      { field: 'vin', header: 'Vin', type: 'text' },
+      { field: 'year', header: 'Year', type: 'text' },
+      { field: 'brand', header: 'Brand', type: 'text' },
+      { field: 'color', header: 'Color', type: 'text' },
+      { field: 'a', header: 'A', type: 'checkbox' },
+      { field: 'b', header: 'B', type: 'checkbox' },
+    ];
   }
 
+  // logFunction($event: any) {
+  //   console.log(this.cars);
+  //
+  // }
 }

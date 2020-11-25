@@ -3,24 +3,36 @@
     "vin": "1",
     "year": "2",
     "brand": "3",
-    "color": "4"
+    "color": "4",
+    "a":  true,
+    "b":  false
+
   },
   {
     "vin": "11",
     "year": "22",
     "brand": "33",
-    "color": "44"
+    "color": "44",
+    "a":  true,
+    "b":  false
+
   },
   {
     "vin": "111",
     "year": "222",
     "brand": "333",
-    "color": "444"
+    "color": "444",
+    "a":  true,
+    "b":  false
+
   },
   {
     "vin": "1111",
     "year": "2222",
     "brand": "3333",
-    "color": "4444"
+    "color": "4444",
+    "a":  true,
+    "b":  false
+
   }
 ]

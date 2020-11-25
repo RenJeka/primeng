@@ -1,19 +1,48 @@
-<p-table [value]="cars">
-  <ng-template pTemplate="header">
+<p-table
+  [value]="cars"
+  [columns]="cols"
+>
+  <!-- =================== HEADER ==================== -->
+  <ng-template
+    pTemplate="header"
+    let-jekaTableColumns
+  >
     <tr>
-      <th>Vin</th>
-      <th>Year</th>
-      <th>Brand</th>
-      <th>Color</th>
+      <th
+        *ngFor="let colonka of jekaTableColumns"
+      >{{colonka.header}}</th>
     </tr>
   </ng-template>
-  <ng-template pTemplate="body" let-car>
+
+<!-- =================== BODY ==================== -->
+  <ng-template
+    pTemplate="body"
+    let-mashinka
+    let-jekaColumns="columns"
+  >
     <tr>
-      <td>{{car.vin}}</td>
-      <td>{{car.year}}</td>
-      <td>{{car.brand}}</td>
-      <td>{{car.color}}</td>
+      <td
+        *ngFor="let colonkaVstroke of jekaColumns"
+      >
+        <ng-container *ngIf="colonkaVstroke.type === 'text'">
+          {{mashinka[colonkaVstroke.field]}}
+        </ng-container>
+
+        <ng-container *ngIf="colonkaVstroke.type === 'checkbox'">
+          <p-checkbox
+            [binary]="true"
+            [(ngModel)]="mashinka[colonkaVstroke.field]"
+            [disabled]="(colonkaVstroke.field === 'b') ? mashinka['a'] : false"
+          >
+          </p-checkbox>
+          <input type="text" [value]="mashinka[colonkaVstroke.field]">
+        </ng-container>
+
+      </td>
     </tr>
   </ng-template>
 </p-table>
-
+<hr>
+<pre>
+  {{cars | json}}
+</pre>

@@ -20,11 +20,12 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    TableModule,
     HttpClientModule,
-    CheckboxModule,
     FormsModule,
     ReactiveFormsModule,
+
+    TableModule,
+    CheckboxModule,
   ],
   providers: [CarService],
   bootstrap: [AppComponent]
