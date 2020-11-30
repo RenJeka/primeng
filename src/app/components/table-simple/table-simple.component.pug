@@ -1,10 +1,10 @@
 h1 table-simple works
-
+//- ------------------------------ FIRST TABLE -----------------------------------------------
 p-table(
   [value]="cars",
   [columns]="cols"
 )
-  // =================== HEADER ==================== -->
+  // =================== HEADER ====================
   ng-template(
     pTemplate="header"
     let-jekaTableColumns
@@ -35,12 +35,87 @@ p-table(
             type="text",
             [value]="mashinka[colonkaVstroke.field]"
           )
+//- ------------------------------ FIRST TABLE END -----------------------------------------------
 hr
-pre {{cars | json}}
+//- ------------------------------ SECOND TABLE -----------------------------------------------
+p-table(
+    [value]="cars",
+    [columns]="cols",
+    frozenWidth="200px",
+    style="overflow:auto;"
+    scrollable="true"
+  )
+  ////- ----------  FROZEN HEADER -------------
+  ng-template(pTemplate="frozenheader")
+    tr
+      th(style="") Brand
+  ////- ----------  FROZEN BODY -------------
+  ng-template(
+    pTemplate="frozenbody",
+    let-car
+  )
+    tr
+      //- стили (высота колонки были подогнаны)
+      td(style="width:200px;height:62px")
+        |{{car['vin']}}
+  // =================== HEADER ====================
+  ng-template(
+    pTemplate="header"
+    let-carColumns
+  )
+    tr
+      th(*ngFor="let column of carColumns")
+        | {{column.header}}
+  // =================== BODY ====================
+  ng-template(
+    pTemplate="body"
+    let-car
+    let-myColumns="columns"
+    )
+    tr
+      td(
+        *ngFor=" let myCarCol of myColumns",
+        style="width:200px"
+      )
+        p {{car[myCarCol.field]}}
 
-p Pug is works!!!
-p.my-class#my-id {{cars | json}}
+//- ------------------------------ SECOND TABLE -----------------------------------------------
+hr
+//- ------------------------------ THIRD TABLE -----------------------------------------------
 
 
+p-table(
+  [columns]="cols",
+  [frozenColumns]="frCols",
+  [value]="cars",
+  [scrollable]="true",
+  scrollHeight="200px",
+  frozenWidth="200px",
+)
+  ng-template(
+    pTemplate="colgroup",
+    let-myColgroupColumns
+  )
+    colgroup
+      col(
+        *ngFor="let col of myColgroupColumns"
+        style="width:200px"
+      )
+  ng-template(
+    pTemplate="header",
+    let-myHeaderColumns
+  )
+    tr
+      th(*ngFor="let mHeadercol of myHeaderColumns")
+        | {{mHeadercol.header}}
+  ng-template(
+    pTemplate="body"
+    let-myRowData
+    let-myBodyColumns="columns"
+  )
+    tr
+      td(*ngFor="let bodyCol of myBodyColumns")
+        |{{myRowData[bodyCol.field]}}
 
 
+//- ------------------------------ THIRD TABLE END -----------------------------------------------
