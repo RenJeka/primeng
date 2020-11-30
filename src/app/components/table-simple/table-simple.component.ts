@@ -5,8 +5,7 @@ import {CarService} from "src/app//services/car.service";
 @Component({
   selector: 'app-table-simple',
   templateUrl: './table-simple.component.html',
-  styles: [
-  ]
+
 })
 export class TableSimpleComponent implements OnInit {
 

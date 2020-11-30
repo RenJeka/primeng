@@ -1,0 +1,46 @@
+h1 table-simple works
+
+p-table(
+  [value]="cars",
+  [columns]="cols"
+)
+  // =================== HEADER ==================== -->
+  ng-template(
+    pTemplate="header"
+    let-jekaTableColumns
+  )
+    tr
+      th(*ngFor="let colonka of jekaTableColumns")
+        |{{colonka.header}}
+
+  // =================== BODY ====================
+  ng-template(
+    pTemplate="body"
+    let-mashinka
+    let-jekaColumns="columns"
+  )
+    tr
+      td(*ngFor="let colonkaVstroke of jekaColumns")
+
+        ng-container(*ngIf="colonkaVstroke.type === 'text'")
+          |{{mashinka[colonkaVstroke.field]}}
+
+        ng-container(*ngIf="colonkaVstroke.type === 'checkbox'")
+          p-checkbox(
+            [binary]="true",
+            [(ngModel)] = "mashinka[colonkaVstroke.field]",
+            [disabled] = "(colonkaVstroke.field === 'b') ? mashinka['a'] : false"
+          )
+          input(
+            type="text",
+            [value]="mashinka[colonkaVstroke.field]"
+          )
+hr
+pre {{cars | json}}
+
+p Pug is works!!!
+p.my-class#my-id {{cars | json}}
+
+
+
+
