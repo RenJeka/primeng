@@ -10,6 +10,7 @@ import {CarService} from "./services/car.service";
 import {HttpClientModule} from "@angular/common/http";
 import {CheckboxModule} from 'primeng-lts/checkbox';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {DropdownModule} from "primeng/dropdown";
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
     TableModule,
     CheckboxModule,
+    DropdownModule
   ],
   providers: [CarService],
   bootstrap: [AppComponent]

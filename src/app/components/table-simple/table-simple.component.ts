@@ -13,7 +13,13 @@ export class TableSimpleComponent implements OnInit {
   cars: Car[];
   cols: any[];
   frCols: any[];
-
+  myDropdownOptions: any[] = [
+    {'a':'lala-1'},
+    {'a':'lala-2'},
+    {'a':'lala-3'},
+    {'a':'lala-4'},
+  ];
+  myDropdownChosenOption = '';
   constructor(private carService: CarService) { }
 
   ngOnInit() {
@@ -42,4 +48,8 @@ export class TableSimpleComponent implements OnInit {
   //   console.log(this.cars);
   //
   // }
+
+  public logDropDown(){
+    console.log(this.myDropdownChosenOption);
+  }
 }

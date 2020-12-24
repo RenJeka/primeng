@@ -42,7 +42,6 @@ p-table(
     [value]="cars",
     [columns]="cols",
     frozenWidth="200px",
-    style="overflow:auto;"
     scrollable="true"
   )
   ////- ----------  FROZEN HEADER -------------
@@ -119,3 +118,22 @@ p-table(
 
 
 //- ------------------------------ THIRD TABLE END -----------------------------------------------
+p-dropdown(
+  [options]=`[
+      {a:1},
+      {a:2},
+      {a:3},
+      {a:4}
+    ]`,
+  optionLabel="a"
+)
+
+hr
+
+p-dropdown(
+  placeholder="Выберите опцию",
+  [options]="myDropdownOptions",
+  optionLabel="a",
+  [(ngModel)]="myDropdownChosenOption",
+  (onChange)="logDropDown()"
+)
