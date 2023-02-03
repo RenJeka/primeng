@@ -137,3 +137,10 @@ p-dropdown(
   [(ngModel)]="myDropdownChosenOption",
   (onChange)="logDropDown()"
 )
+
+//- ====================================================================
+
+ng-container(
+  *ngIf = "test1 && test2"
+)
+  h2 Сообщение есть! 111

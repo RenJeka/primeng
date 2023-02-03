@@ -9,6 +9,8 @@ import {CarService} from "src/app//services/car.service";
 })
 export class TableSimpleComponent implements OnInit {
 
+  test1 = true;
+  test2 = true;
 
   cars: Car[];
   cols: any[];
